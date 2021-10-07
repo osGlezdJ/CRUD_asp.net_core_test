@@ -3,7 +3,6 @@ using System.Linq;
 
 namespace MemesApi.Models
 {
-    //here to generate the data of the memes
     public class MockMemeThumbRepository : IMemeRepository
     {
         public IEnumerable<MemeThumbnail> AllMemes => new List<MemeThumbnail>

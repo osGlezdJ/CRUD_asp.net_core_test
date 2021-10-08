@@ -22,7 +22,7 @@ namespace MemesApi.Controllers
         [HttpGet]
         public IEnumerable<MemeThumbnail> Get()
         {
-            return _memeRepository.AllMemes;
+            return _memeRepository.AllMemes;       // to returns a list of all memes
         }
 
         // // GET: api/List/5

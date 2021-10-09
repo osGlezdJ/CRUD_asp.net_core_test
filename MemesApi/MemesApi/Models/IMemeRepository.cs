@@ -4,8 +4,8 @@ namespace MemesApi.Models
 {
     public interface IMemeRepository
     {
-        public IEnumerable<MemeThumbnail> AllMemes { get; }
-
+        public IList<MemeThumbnail> AllMemes { get; }
+        
         MemeThumbnail GetMemeById(int memeId);
     }
 }

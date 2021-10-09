@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 using MemesApi.Models;
 using Microsoft.AspNetCore.Http;
@@ -18,6 +19,7 @@ namespace MemesApi.Controllers
         {
             _memeRepository = memeRepository;
         }
+        
         // GET: api/List
         [HttpGet]
         public IEnumerable<MemeThumbnail> Get()
@@ -32,11 +34,16 @@ namespace MemesApi.Controllers
         //     return "value";
         // }
         //
-        // // POST: api/List
-        // [HttpPost]
-        // public void Post([FromBody] string value)
-        // {
-        // }
+        
+        
+        // POST: api/List
+        [HttpPost]
+        public void Post([FromBody] object value)
+        {
+            var x = JsonSerializer.Serialize(value);
+            var temporal = JsonSerializer.Deserialize<MemeThumbnail>(x);
+            _memeRepository.AllMemes.Add(temporal);
+        }
         //
         // // PUT: api/List/5
         // [HttpPut("{id}")]

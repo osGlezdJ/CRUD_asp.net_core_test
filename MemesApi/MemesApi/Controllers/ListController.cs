@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using MemesApi.Models;
 using Microsoft.AspNetCore.Http;
@@ -28,21 +29,24 @@ namespace MemesApi.Controllers
         }
 
         // // GET: api/List/5
-        // [HttpGet("{id}", Name = "Get")]
-        // public string Get(int id)
-        // {
-        //     return "value";
-        // }
-        //
+        [HttpGet("{id}", Name = "Get")]
+        public MemeThumbnail Get(int id)
+        {
+            return _memeRepository.GetMemeById(id);
+        }
+        
         
         
         // POST: api/List
         [HttpPost]
-        public void Post([FromBody] object value)
+        public void Post([FromBody] JsonElement value)
         {
+            //IEnumerable<string> test;
+            
             var x = JsonSerializer.Serialize(value);
             var temporal = JsonSerializer.Deserialize<MemeThumbnail>(x);
-            _memeRepository.AllMemes.Add(temporal);
+            _memeRepository.AllMemes.Append(temporal);
+
         }
         //
         // // PUT: api/List/5

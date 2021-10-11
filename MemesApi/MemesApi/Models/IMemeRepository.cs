@@ -7,6 +7,6 @@ namespace MemesApi.Models
         public List<MemeThumbnail> AllMemes { get;}
         public List<MemeThumbnail> MyList { get; set; }
         MemeThumbnail GetMemeById(int memeId);
-        void AddItem(MemeThumbnail item);
+        void AddItem(List<MemeThumbnail> item);
     }
 }

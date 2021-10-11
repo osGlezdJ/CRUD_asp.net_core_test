@@ -1,11 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text.Json;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 using MemesApi.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MemesApi.Controllers
@@ -38,11 +34,13 @@ namespace MemesApi.Controllers
         
         // POST: api/List
         [HttpPost]
-        public void Post([FromBody] JsonElement value)
+        public IActionResult Post([FromBody] JsonElement value)
         {
-            var x = JsonSerializer.Serialize(value);
-            var temporal = JsonSerializer.Deserialize<MemeThumbnail>(x);    //I get MemeThumbnail from received json
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true};
+            var x = JsonSerializer.Serialize(value, options);
+            var temporal = JsonSerializer.Deserialize<List<MemeThumbnail>>(x,options);    //I get MemeThumbnail from received json
             _memeRepository.AddItem(temporal);
+            return Created(String.Empty, temporal);
 
         }
         

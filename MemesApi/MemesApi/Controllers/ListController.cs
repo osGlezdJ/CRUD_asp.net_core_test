@@ -23,9 +23,9 @@ namespace MemesApi.Controllers
         
         // GET: api/List
         [HttpGet]
-        public IEnumerable<MemeThumbnail> Get()
+        public IList<MemeThumbnail> Get()
         {
-            return _memeRepository.AllMemes;       // to returns a list of all memes
+            return _memeRepository.MyList;       // to returns a list of all memes
         }
 
         // // GET: api/List/5
@@ -36,18 +36,17 @@ namespace MemesApi.Controllers
         }
         
         
-        
         // POST: api/List
         [HttpPost]
         public void Post([FromBody] JsonElement value)
         {
-            //IEnumerable<string> test;
-            
             var x = JsonSerializer.Serialize(value);
-            var temporal = JsonSerializer.Deserialize<MemeThumbnail>(x);
-            _memeRepository.AllMemes.Append(temporal);
+            var temporal = JsonSerializer.Deserialize<MemeThumbnail>(x);    //I get MemeThumbnail from received json
+            _memeRepository.AddItem(temporal);
 
         }
+        
+        
         //
         // // PUT: api/List/5
         // [HttpPut("{id}")]

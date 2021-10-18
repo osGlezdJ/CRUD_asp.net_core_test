@@ -45,17 +45,30 @@ namespace MemesApi.Controllers
         }
         
         
-        //
-        // // PUT: api/List/5
-        // [HttpPut("{id}")]
-        // public void Put(int id, [FromBody] string value)
-        // {
-        // }
-        //
-        // // DELETE: api/List/5
-        // [HttpDelete("{id}")]
-        // public void Delete(int id)
-        // {
-        // }
+        
+        // PUT: api/List/5
+        [HttpPut("{id}")]
+        public string Put(int id, [FromBody] JsonElement value)
+        {
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true};
+            var x = JsonSerializer.Serialize(value, options);
+            var temporal = JsonSerializer.Deserialize<MemeThumbnail>(x,options);
+            _memeRepository.MyList[id] = temporal;
+            return $"item {temporal!.Name} updated successfully";
+        }
+        
+        
+        
+        // DELETE: api/List/5
+        [HttpDelete("{id}")]
+        public string Delete(int id)
+        {
+            if (_memeRepository.MyList.Count == 0)
+            {
+                return "There is not memes for remove";
+            }
+            _memeRepository.MyList.RemoveAt(id);
+            return "item removed successfully";
+        }
     }
 }

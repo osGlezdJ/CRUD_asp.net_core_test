@@ -1,9 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text.Json;
 using MemesApi.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MemesApi.Controllers
@@ -18,25 +16,35 @@ namespace MemesApi.Controllers
         {
             _memeRepository = memeRepository;
         }
+        
         // GET: api/List
         [HttpGet]
-        public IEnumerable<MemeThumbnail> Get()
+        public IList<MemeThumbnail> Get()
         {
-            return _memeRepository.AllMemes;       // to returns a list of all memes
+            return _memeRepository.MyList;       // to returns a list of all memes
         }
 
         // // GET: api/List/5
-        // [HttpGet("{id}", Name = "Get")]
-        // public string Get(int id)
-        // {
-        //     return "value";
-        // }
-        //
-        // // POST: api/List
-        // [HttpPost]
-        // public void Post([FromBody] string value)
-        // {
-        // }
+        [HttpGet("{id}", Name = "Get")]
+        public MemeThumbnail Get(int id)
+        {
+            return _memeRepository.GetMemeById(id);
+        }
+        
+        
+        // POST: api/List
+        [HttpPost]
+        public IActionResult Post([FromBody] JsonElement value)
+        {
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true};
+            var x = JsonSerializer.Serialize(value, options);
+            var temporal = JsonSerializer.Deserialize<List<MemeThumbnail>>(x,options);    //I get MemeThumbnail from received json
+            _memeRepository.AddItem(temporal);
+            return Created(String.Empty, temporal);
+
+        }
+        
+        
         //
         // // PUT: api/List/5
         // [HttpPut("{id}")]

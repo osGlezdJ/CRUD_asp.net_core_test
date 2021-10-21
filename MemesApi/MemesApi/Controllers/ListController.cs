@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text.Json;
+using MemesApi.Data;
 using MemesApi.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -36,11 +37,25 @@ namespace MemesApi.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] JsonElement value)
         {
-            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true};
-            var x = JsonSerializer.Serialize(value, options);
-            var temporal = JsonSerializer.Deserialize<List<MemeThumbnail>>(x,options);    //I get MemeThumbnail from received json
-            _memeRepository.AddItem(temporal);
-            return Created(String.Empty, temporal);
+            if (value.ValueKind == JsonValueKind.Object)
+            {
+                var options = new JsonSerializerOptions {PropertyNameCaseInsensitive = true};
+                var x = JsonSerializer.Serialize(value, options);
+                var temporal = JsonSerializer.Deserialize<MemeThumbnail>(x,options);
+                var temp_ls = new List<MemeThumbnail>() { temporal};
+                _memeRepository.AddItem(temp_ls);
+                return Created(String.Empty, temporal);
+            }
+            else
+            {
+                var options = new JsonSerializerOptions {PropertyNameCaseInsensitive = true};
+                var x = JsonSerializer.Serialize(value, options);
+                var temporal = JsonSerializer.Deserialize<List<MemeThumbnail>>(x, options); //I get MemeThumbnail from received json
+                _memeRepository.AddItem(temporal);
+                return Created(String.Empty, temporal);
+            }
+            
+            
 
         }
         

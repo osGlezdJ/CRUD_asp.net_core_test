@@ -1,4 +1,4 @@
-using MemesApi.Models;
+using MemesApi.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -21,7 +21,7 @@ namespace MemesApi
         public void ConfigureServices(IServiceCollection services)
         {
             // configure the dependency container
-            services.AddSingleton<IMemeRepository, MockMemeThumbRepository>();
+            services.AddScoped<IMemeRepository, MockMemeThumbRepository>();
             
             services.AddControllers();
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "MemesApi", Version = "v1"}); });

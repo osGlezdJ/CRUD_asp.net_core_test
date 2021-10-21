@@ -8,5 +8,7 @@
     &lt;TestId&gt;xUnit::BEFCBF49-B313-463A-BBC2-17304D506639::net5.0::TestForMemesApi.ListControllerTests.GivenPutMethod_WhenPutMeme_ThenUpdateThat&lt;/TestId&gt;
     &lt;TestId&gt;xUnit::BEFCBF49-B313-463A-BBC2-17304D506639::net5.0::TestForMemesApi.ListControllerTests.GivenPostMethod_WhenReceiveAnArrayOfMeme_ThenStoreThat&lt;/TestId&gt;
     &lt;TestId&gt;xUnit::BEFCBF49-B313-463A-BBC2-17304D506639::net5.0::TestForMemesApi.ListControllerTests.GivenPostMethod_WhenReceiveOnlyOneMeme_ThenStoreThat&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::BEFCBF49-B313-463A-BBC2-17304D506639::net5.0::TestForMemesApi.ListControllerTests.GivenGetByIdMethod_WhenRequestForSpecificMemesStored_ThenReturnsThat&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::BEFCBF49-B313-463A-BBC2-17304D506639::net5.0::TestForMemesApi.ListControllerTests.GivenDeleteMethod_WhenRequestForSpecificMemesStored_ThenDeleteThat&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

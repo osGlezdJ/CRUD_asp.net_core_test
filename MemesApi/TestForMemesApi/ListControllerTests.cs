@@ -38,6 +38,7 @@ namespace TestForMemesApi
             Assert.Empty(memes);
         }
         
+        
         [Fact]
         public void GivenGetMethod_WhenRequestForAllMemesStored_ThenReturnsAllMemesStored()
         {
@@ -53,6 +54,26 @@ namespace TestForMemesApi
 
         }
 
+        
+        [Fact]
+        public void GivenGetByIdMethod_WhenRequestForSpecificMemesStored_ThenReturnsThat()
+        {
+            var memeMock = new Mock<MockMemeThumbRepository>();
+            var controller = new ListController(memeMock.Object);
+
+            memeMock.SetupAllProperties();
+            var expected = memeMock.Object.MyList[1];
+            
+            var result = controller.Get(1);
+            
+            Assert.Equal(result, expected  );
+            
+
+        }
+
+        
+        
+        
         [Fact]
         public void GivenPostMethod_WhenReceiveAnArrayOfMeme_ThenStoreThat()
         {
@@ -80,6 +101,7 @@ namespace TestForMemesApi
         }
         
         
+        
         [Fact]
         public void GivenPostMethod_WhenReceiveOnlyOneMeme_ThenStoreThat()
         {
@@ -102,8 +124,8 @@ namespace TestForMemesApi
             Assert.Contains(memeMock.Object.MyList, m => m.Name=="Meme Test");
 
         }
-
-
+        
+        
         
         
         [Fact]
@@ -125,5 +147,22 @@ namespace TestForMemesApi
             Assert.Equal( "Meme Test Updated",memeMock.Object.MyList[0].Name);
 
         }
+        
+        
+        [Fact]
+        public void GivenDeleteMethod_WhenRequestForSpecificMemesStored_ThenDeleteThat()
+        {
+            var memeMock = new Mock<MockMemeThumbRepository>();
+            var controller = new ListController(memeMock.Object);
+
+            memeMock.SetupAllProperties();
+
+            controller.Delete(1);
+            
+            Assert.DoesNotContain(memeMock.Object.MyList, m => m.Name=="Baseball meme");
+            
+
+        }
+        
     }
 }

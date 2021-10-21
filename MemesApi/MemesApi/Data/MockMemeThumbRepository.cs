@@ -8,7 +8,7 @@ namespace MemesApi.Data
     {
         public List<MemeThumbnail> MyList { get; set; } = new();
         
-        public List<MemeThumbnail> AllMemes =>
+        public static List<MemeThumbnail> AllMemes =>
             new List<MemeThumbnail>
             {
                 new MemeThumbnail

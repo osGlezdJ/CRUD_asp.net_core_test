@@ -1,8 +1,8 @@
 *.vscode
 *.DS_Store
-obj/
-bin/
-.idea/
-.idea
-bin
-obj
+**/obj/
+**/bin/
+**/.idea/
+**/.idea
+**/bin
+**/obj

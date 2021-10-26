@@ -22,6 +22,7 @@ namespace MemesApi
         {
             // configure the dependency container
             services.AddSingleton<IMemeRepository, MockMemeThumbRepository>();
+            services.AddSingleton<IMemeCollection, MemeCollection>();
             
             services.AddControllers();
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "MemesApi", Version = "v1"}); });

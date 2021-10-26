@@ -30,7 +30,7 @@ namespace TestForMemesApi
         public void GivenAnEmptyListOfMemes_WhenListControllerGet_ThenShouldReturnAnEmptyList()
         {
             var memeMock = new Mock<IMemeRepository>();
-            var controller = new ListController(memeMock.Object);
+            var controller = new MemesController(memeMock.Object);
 
             memeMock.Setup(m => m.MyList).Returns(new List<MemeThumbnail>());
             
@@ -43,7 +43,7 @@ namespace TestForMemesApi
         public void GivenGetMethod_WhenRequestForAllMemesStored_ThenReturnsAllMemesStored()
         {
             var memeMock = new Mock<MockMemeThumbRepository>();
-            var controller = new ListController(memeMock.Object);
+            var controller = new MemesController(memeMock.Object);
 
             memeMock.SetupAllProperties();
             
@@ -59,7 +59,7 @@ namespace TestForMemesApi
         public void GivenGetByIdMethod_WhenRequestForSpecificMemesStored_ThenReturnsThat()
         {
             var memeMock = new Mock<MockMemeThumbRepository>();
-            var controller = new ListController(memeMock.Object);
+            var controller = new MemesController(memeMock.Object);
 
             memeMock.SetupAllProperties();
             var expected = memeMock.Object.MyList[1];
@@ -78,7 +78,7 @@ namespace TestForMemesApi
         public void GivenPostMethod_WhenReceiveAnArrayOfMeme_ThenStoreThat()
         {
             var memeMock = new Mock<MockMemeThumbRepository>();
-            var controller = new ListController(memeMock.Object);
+            var controller = new MemesController(memeMock.Object);
 
             //string income = "{\n  \"MemeId\" : 101,\n  \"Name\" :\"Test meme\",\n  \"Description\" : \"This is a meme for a test\",\n  \"Width\" : 400,\n  \"Height\" : 600,\n  \"Original\" : \"URI_test\",\n  \"Thumb\" : \"ThumbUri_test\"\n}";
 
@@ -106,7 +106,7 @@ namespace TestForMemesApi
         public void GivenPostMethod_WhenReceiveOnlyOneMeme_ThenStoreThat()
         {
             var memeMock = new Mock<MockMemeThumbRepository>();
-            var controller = new ListController(memeMock.Object);
+            var controller = new MemesController(memeMock.Object);
 
             //string income = "{\n  \"MemeId\" : 101,\n  \"Name\" :\"Test meme\",\n  \"Description\" : \"This is a meme for a test\",\n  \"Width\" : 400,\n  \"Height\" : 600,\n  \"Original\" : \"URI_test\",\n  \"Thumb\" : \"ThumbUri_test\"\n}";
 
@@ -132,7 +132,7 @@ namespace TestForMemesApi
         public void GivenPutMethod_WhenPutMeme_ThenUpdateThat()
         {
             var memeMock = new Mock<MockMemeThumbRepository>();
-            var controller = new ListController(memeMock.Object);
+            var controller = new MemesController(memeMock.Object);
 
             string income = "{\n        \"memeId\": 110,\n        \"Name\": \"Meme Test Updated\",\n        \"Description\": \"Only for a PUT test\",\n        \"Width\": 400,\n        \"Height\": 600,\n        \"Original\": \"URI_110\",\n        \"Thumb\": \"ThumbUri_110\"\n    }";
             
@@ -153,7 +153,7 @@ namespace TestForMemesApi
         public void GivenDeleteMethod_WhenRequestForSpecificMemesStored_ThenDeleteThat()
         {
             var memeMock = new Mock<MockMemeThumbRepository>();
-            var controller = new ListController(memeMock.Object);
+            var controller = new MemesController(memeMock.Object);
 
             memeMock.SetupAllProperties();
 

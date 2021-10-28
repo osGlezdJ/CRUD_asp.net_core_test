@@ -2,9 +2,11 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemesApi", "MemesApi\MemesApi.csproj", "{F7DE6010-0DE7-4F9F-877F-1D5484F65A09}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestForMemesApi", "TestForMemesApi\TestForMemesApi.csproj", "{BEFCBF49-B313-463A-BBC2-17304D506639}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemesApiTests", "MemesApiTests\MemesApiTests.csproj", "{BEFCBF49-B313-463A-BBC2-17304D506639}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OldMemesApi", "OldMemesApi\OldMemesApi.csproj", "{377BCE05-0ACF-49D8-B3DE-93E072A06B5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OldMemesApiTests", "OldMemesApiTests\OldMemesApiTests.csproj", "{07D4C769-63D0-4F80-ADCE-4E351C5C7FF7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +26,9 @@ Global
 		{377BCE05-0ACF-49D8-B3DE-93E072A06B5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{377BCE05-0ACF-49D8-B3DE-93E072A06B5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{377BCE05-0ACF-49D8-B3DE-93E072A06B5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07D4C769-63D0-4F80-ADCE-4E351C5C7FF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07D4C769-63D0-4F80-ADCE-4E351C5C7FF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07D4C769-63D0-4F80-ADCE-4E351C5C7FF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07D4C769-63D0-4F80-ADCE-4E351C5C7FF7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

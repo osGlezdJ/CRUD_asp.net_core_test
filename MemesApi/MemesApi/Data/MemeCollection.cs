@@ -8,7 +8,7 @@ namespace MemesApi.Data
 {
     public class MemeCollection : IMemeCollection
     {
-        private MongoDbRepository _repo = new MongoDbRepository();
+        private MongoDbRepository _repo = new();
         private IMongoCollection<Meme> Collection;
 
         public MemeCollection()

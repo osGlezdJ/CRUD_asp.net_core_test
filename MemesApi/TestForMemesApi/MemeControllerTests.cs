@@ -9,7 +9,7 @@ using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace TestForMemesApi
 {
-    public class ListControllerTests
+    public class MemeControllerTests
     {
         // [Fact]
         // public void GetAllMemes()

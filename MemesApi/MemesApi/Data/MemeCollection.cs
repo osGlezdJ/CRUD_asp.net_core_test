@@ -8,13 +8,22 @@ namespace MemesApi.Data
 {
     public class MemeCollection : IMemeCollection
     {
-        private MongoDbRepository _repo = new();
+        //private MongoDbRepository _repo = new();
         private IMongoCollection<Meme> Collection;
 
-        public MemeCollection()
+
+        public MemeCollection(IMemesDatabaseSettings settings)
         {
-            Collection = _repo.db.GetCollection<Meme>("Memes");
+            var client = new MongoClient(settings.ConnectionString);
+            var database = client.GetDatabase(settings.DatabaseName);
+            Collection = database.GetCollection<Meme>(settings.MemesCollectionName);
         }
+        
+
+        // public MemeCollection()
+        // {
+        //     Collection = _repo.db.GetCollection<Meme>("Memes");
+        // }
 
 
         public async Task<List<Meme>> GetAllMemes()

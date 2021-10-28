@@ -25,6 +25,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\MemesApi\MemesApi.csproj" />
+      <ProjectReference Include="..\OldMemesApi\OldMemesApi.csproj" />
     </ItemGroup>
 
 </Project>

@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemesApi", "MemesApi\MemesA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestForMemesApi", "TestForMemesApi\TestForMemesApi.csproj", "{BEFCBF49-B313-463A-BBC2-17304D506639}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OldMemesApi", "OldMemesApi\OldMemesApi.csproj", "{377BCE05-0ACF-49D8-B3DE-93E072A06B5A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{BEFCBF49-B313-463A-BBC2-17304D506639}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BEFCBF49-B313-463A-BBC2-17304D506639}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BEFCBF49-B313-463A-BBC2-17304D506639}.Release|Any CPU.Build.0 = Release|Any CPU
+		{377BCE05-0ACF-49D8-B3DE-93E072A06B5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{377BCE05-0ACF-49D8-B3DE-93E072A06B5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{377BCE05-0ACF-49D8-B3DE-93E072A06B5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{377BCE05-0ACF-49D8-B3DE-93E072A06B5A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
